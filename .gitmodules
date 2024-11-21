@@ -1,0 +1,6 @@
+[submodule "src/apicall"]
+	path = src/apicall
+	url = git@github.com:THUNLP-MT/StableToolBench.git
+[submodule "src/LLaMA-Factory"]
+	path = src/LLaMA-Factory
+	url = git@github.com:hiyouga/LLaMA-Factory.git

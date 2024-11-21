@@ -1,0 +1,48 @@
+model:
+  family: transformer
+  n_dims: 1
+  n_embd: 256
+  n_head: 8
+  n_layer: 12
+  n_positions: 40
+output_dir: results/add-sin1-cos1
+train:
+  batch_size: 256
+  bias: 0
+  comp_count: 1
+  comp_funcs:
+  - sin+1
+  - cos+1
+  curriculum:
+    dims:
+      end: 1
+      inc: 1
+      interval: 2000
+      start: 1
+    points:
+      end: 40
+      inc: 2
+      interval: 2000
+      start: 40
+  gpu: '0'
+  keep_every_steps: 10000
+  learning_rate: 0.0001
+  limit: pi
+  save_every_steps: 10000
+  task: sinusoidal
+  task_kwargs: {}
+  task_type: add
+  train_list:
+  - sin+1
+  - sin+2
+  - cos+1
+  - cos+2
+  train_steps: 50001
+  train_type: combination
+  use_wandb: false
+  xs_datatype: gaussian
+wandb:
+  entity: anonymous
+  log_every_steps: 100
+  name: add-sin1-cos1
+  project: generalization-of-transformers
