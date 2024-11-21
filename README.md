@@ -9,6 +9,8 @@ The code repository contains code for all of our main experiments.
 
 As each task can be split into `preprocess`, `train` and `evaluation` clearly, you can read the comments of the corresponding source code to get usage.
 
+For submodules, you can use `git submodule update --init` to get them.
+
 Thanks for those repos:
 
 - https://github.com/hiyouga/LLaMA-Factory/
