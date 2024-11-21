@@ -126,11 +126,13 @@ def train(model, args):
             **task_kwargs
     )(**task_kwargs) for task in task_list]
     M, M_prod = -1, 1
+    M_max, M_min = -1000000, 1000000
     for task_sampler in void_task_sampler_list:
         minv, maxv = find_extrema(task_sampler.evaluate, 1, 1, limit)
         M_i = max(abs(minv), abs(maxv))
         M_prod *= M_i
         M = max(M, M_i)
+        M_max, M_min = max(M_max, maxv), min(M_min, minv)
     if args.train.task_type == 'add':
         scaleup = len(task_sampler_list) * M
     elif args.train.task_type == 'mul':
@@ -170,8 +172,14 @@ def train(model, args):
             comp_sampler_list=comp_sampler_list,
             scaleup=scaleup
         )
-
-        loss_func = MSE
+        def MSE_wrapper(M_min, M_max):
+            def MSE(output, target):
+                for i in range(output.shape[0]):
+                    if not (M_min <= output[i] <= M_max):
+                        output[i], target[i] = 0, 0
+                return ((output - target) ** 2).mean()
+            return MSE
+        loss_func = MSE_wrapper(M_min, M_max)
         loss, output = step(
             model, 
             xs.to(device), 
