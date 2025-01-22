@@ -1,5 +1,11 @@
 # Generalization of Transformers with In-Context Learning: An Empirical Study
 
+> Generalization of Transformers with In-Context Learning: An Empirical Study [ICLR 2025]
+>
+> Xingxuan Zhang, Haoran Wang, Jiansheng Li, Yuan Xue, Shikai Guan, Renzhe Xu, Hao Zou, Han Yu, Peng Cui
+
+📝 [Paper](https://openreview.net/forum?id=yOhNLIqTEF)
+
 The code repository contains code for all of our main experiments.
 
 - embed-level function fitting
