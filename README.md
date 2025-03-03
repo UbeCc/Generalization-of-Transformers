@@ -4,7 +4,7 @@
 >
 > Xingxuan Zhang, Haoran Wang, Jiansheng Li, Yuan Xue, Shikai Guan, Renzhe Xu, Hao Zou, Han Yu, Peng Cui
 
-📝 [Paper](https://openreview.net/forum?id=yOhNLIqTEF)
+📝 [Paper](https://openreview.net/forum?id=yOhNLIqTEF) | 🤗 [Huggingface](https://huggingface.co/datasets/hrw/WMT500) | 📚 [Slide](https://docs.google.com/presentation/d/1BdGrJg4OUoUsbjLF0oXstOG67i5p5HzzLJ8NPoeIUjw/edit#slide=id.g33bf82ddc4f_2_48)
 
 The code repository contains code for all of our main experiments.
 
